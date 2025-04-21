@@ -1,10 +1,10 @@
-NAME =  #dont forget the name
+NAME = PhoneBook #dont forget the name
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = 
+SRC = main.cpp PhoneBook.cpp Contact.cpp
 OBJ = $(SRC:.cpp=.o) #add .cpp
 
 BOLD      = \e[1m
