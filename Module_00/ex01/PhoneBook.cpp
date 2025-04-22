@@ -9,9 +9,9 @@ PhoneBook::PhoneBook()
 void PhoneBook::addData()
 {
     contact[indexing].setData();
-    if (!contact[indexing].checkEmpty())
+    if (!contact[indexing].isValid())
     {
-        std::cout << "All the fields must be filled!" << std::endl;
+        std::cout << "\e[31mPlease recheck you information!\033[0m" << std::endl;
         return;
     }
     
@@ -22,7 +22,7 @@ void PhoneBook::addData()
     if (indexing == 8) //we have reached the max so we have to start again
         indexing = 0;
 
-    std::cout << "\e[1;31mman! this is a useless data give your credit card info 👀\e[0m";
+    std::cout << "\e[1;33mMan! this is a useless data. Give your credit card info 👀\e[0m";
     std::cout << std::endl;
     std::cout << "\e[1;32mHowever, your data has been added successfully :)\e[0m"  << std::endl;
 
@@ -41,7 +41,8 @@ void PhoneBook::searchData()
         return;
     }
 
-    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+    std::cout << "\033[34m|     Index|First Name| Last Name|  Nickname|\033[0m";
+    std::cout << std::endl;
     std::cout << "|----------|----------|----------|----------|" << std::endl;
     while(i < total)
     {
@@ -54,14 +55,14 @@ void PhoneBook::searchData()
 
     if (index.length() != 1 || index[0] < '0' || index[0] > '7')
     {
-        std::cout << "Invalid input!" << std::endl;
+        std::cout << "\033[31mInvalid input!\033[0m" << std::endl;
         return;
     }
 
-    num = std::stoi(index);
+    num = index[0] - '0';
     if (num >= total)
     {
-        std::cout << "Out of range!" << std::endl;
+        std::cout << "\033[31mOut of range!\033[0m" << std::endl;
         return;
     }
 

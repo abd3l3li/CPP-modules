@@ -25,7 +25,7 @@ void Contact::setData()
     std::getline(std::cin, nickname);
 
     std::cout << "Phone Number: ";
-    std::getline(std::cin, phoneNumer);
+    std::getline(std::cin, phoneNumber);
 
     std::cout << "Darkest Secret: ";
     std::getline(std::cin, darkestSecret);
@@ -37,7 +37,7 @@ void Contact::getData()
     std::cout << "First Name: " << firstName << " ℹ️" << std::endl;
     std::cout << "Last Name: " << lastName << " ℹ️" << std::endl;
     std::cout << "Nickname: " << nickname << " ℹ️" << std::endl;
-    std::cout << "Phone Number: " << phoneNumer << " ☎️" << std::endl;
+    std::cout << "Phone Number: " << phoneNumber << " ☎️" << std::endl;
     std::cout << "Darkest Secret: " << darkestSecret << " ☠️" << std::endl;
 }
 
@@ -46,13 +46,30 @@ void Contact::getTitles(int index)
     std::cout << "|" << std::setw(10) << index;
     format(firstName);
     format(lastName);
-    format(phoneNumer);
     format(nickname);
     std::cout << "|" << std::endl;
 }
 
-bool Contact::checkEmpty()
+bool Contact::isValid()
 {
-    return (!firstName.empty() && !lastName.empty() && !nickname.empty()
-            && !phoneNumer.empty() && !darkestSecret.empty());
+    if (firstName.empty() || lastName.empty() || nickname.empty()
+        || phoneNumber.empty() || darkestSecret.empty())
+        return false;
+
+    for (size_t i = 0; i < firstName.length(); ++i)
+        if (!isalpha(firstName[i]))
+            return false;
+    for (size_t i = 0; i < lastName.length(); ++i)
+        if (!isalpha(lastName[i]))
+            return false;
+    for (size_t i = 0; i < nickname.length(); ++i)
+        if (!isprint(nickname[i]))
+            return false;
+    for (size_t i = 0; i < phoneNumber.length(); ++i)
+        if (!isdigit(phoneNumber[i]))
+            return false;
+    for (size_t i = 0; i < darkestSecret.length(); ++i)
+        if (!isprint(darkestSecret[i]))
+            return false;
+    return true;
 }
