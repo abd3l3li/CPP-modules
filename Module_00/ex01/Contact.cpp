@@ -29,9 +29,6 @@ void Contact::setData()
 
     std::cout << "Darkest Secret: ";
     std::getline(std::cin, darkestSecret);
-
-    //std::cout << "\e[1;31mman! this is a useless 
-    //data give your credit card info 👀\e[0m";
     
 }
 
