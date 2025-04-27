@@ -10,5 +10,5 @@ class Weapon // recheck this part of the weapon
         Weapon(std::string type);
         ~Weapon();
         void setType(std::string type);
-        std::string getType() const;
+        const std::string& getType() const;
 };
