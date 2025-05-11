@@ -16,20 +16,20 @@ void format (std::string data)
 void Contact::setData()
 {
     std::cout << "First Name: ";
-    std::getline(std::cin, firstName);
-
+    if(!std::getline(std::cin, firstName))
+        exit(0);
     std::cout << "Last Name: ";
-    std::getline(std::cin, lastName);
-
+    if(!std::getline(std::cin, lastName))
+        exit(0);
     std::cout << "Nickname: ";
-    std::getline(std::cin, nickname);
-
+    if(!std::getline(std::cin, nickname))
+        exit(0);
     std::cout << "Phone Number: ";
-    std::getline(std::cin, phoneNumber);
-
+    if(!std::getline(std::cin, phoneNumber))
+        exit(0);
     std::cout << "Darkest Secret: ";
-    std::getline(std::cin, darkestSecret);
-    
+    if(!std::getline(std::cin, darkestSecret))
+        exit(0);
 }
 
 void Contact::getData()

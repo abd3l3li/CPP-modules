@@ -24,7 +24,7 @@ clean:
 	@$(RM) $(OBJ)
 
 fclean: clean 
-	@$(RM) $(NAME) *.replace
+	@$(RM) $(NAME)
 
 re: fclean all 
 

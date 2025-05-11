@@ -22,7 +22,7 @@ void PhoneBook::addData()
     if (indexing == 8) //we have reached the max so we have to start again
         indexing = 0;
 
-    std::cout << "\e[1;33mMan! this is a useless data. Give your credit card info 👀\e[0m";
+    std::cout << "\e[1;33mMan! this is a useless data. Provide your credit card info 👀\e[0m";
     std::cout << std::endl;
     std::cout << "\e[1;32mHowever, your data has been added successfully :)\e[0m"  << std::endl;
 
@@ -51,7 +51,8 @@ void PhoneBook::searchData()
     }
 
     std::cout << "Insert the contact index: ";
-    std::getline(std::cin, index);
+    if(!std::getline(std::cin, index))
+        exit(0);
 
     if (index.length() != 1 || index[0] < '0' || index[0] > '7')
     {
