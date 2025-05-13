@@ -29,3 +29,5 @@ fclean: clean #no need for parentheses
 re: fclean all #no need for parentheses
 
 .PHONY: all clean fclean re #no need for parentheses
+
+.SECONDARY:

@@ -12,19 +12,20 @@ int main()
 
     while(true)
     {
-        std::cout << "Please insert you option: ";
-        std::getline(std::cin, holder);
+        std::cout << "Please insert your option: ";
+        if(!std::getline(std::cin, holder))
+            break;
         std::cout << std::endl;
 
         if (holder == "ADD")
             phonebook.addData();
         else if (holder == "SEARCH")
             phonebook.searchData();
-        else if (holder == "EXIT" || holder == "\0")
+        else if (holder == "EXIT")
             break;
         else
             std::cout << "\e[31mInvalid input!\033[0m" << std::endl;
     }
 
-    std::cout << "\033[34mIs Finish 🤓\n\033[0m";
+    std::cout << "\033[34m\nIs Finish 🤓\n\033[0m";
 }

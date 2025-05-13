@@ -57,10 +57,10 @@ bool Contact::isValid()
         return false;
 
     for (size_t i = 0; i < firstName.length(); ++i)
-        if (!isalpha(firstName[i]))
+        if (!isprint(firstName[i]))
             return false;
     for (size_t i = 0; i < lastName.length(); ++i)
-        if (!isalpha(lastName[i]))
+        if (!isprint(lastName[i]))
             return false;
     for (size_t i = 0; i < nickname.length(); ++i)
         if (!isprint(nickname[i]))

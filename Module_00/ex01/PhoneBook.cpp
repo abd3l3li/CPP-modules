@@ -11,7 +11,7 @@ void PhoneBook::addData()
     contact[indexing].setData();
     if (!contact[indexing].isValid())
     {
-        std::cout << "\e[31mPlease recheck you information!\033[0m" << std::endl;
+        std::cout << "\e[31mPlease recheck your information!\033[0m" << std::endl;
         return;
     }
     
