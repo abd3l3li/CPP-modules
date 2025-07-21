@@ -14,8 +14,8 @@ int main()
         PresidentialPardonForm pardonForm("Ford");
 
         std::cout << "\n== Trying to sign all forms with Bob ==\n";
-        bob.signForm(shrubForm);  // Should work
-        bob.signForm(robotForm);  // Should fail
+        // bob.signForm(shrubForm);  // Should work // holds data form here
+        bob.signForm(robotForm);  // Should fail 
         bob.signForm(pardonForm); // Should fail
 
         std::cout << "\n== Trying to execute all forms with Bob ==\n";
@@ -26,7 +26,7 @@ int main()
         std::cout << "\n== Now Alice signs and executes all ==\n";
         alice.signForm(robotForm);
         alice.signForm(pardonForm);
-        alice.signForm(shrubForm);  // Should work // why it still work?
+        // alice.signForm(shrubForm);  // Should work // why it still work?
 
         std::cout << "\n== Alice executing forms ==\n";
 
