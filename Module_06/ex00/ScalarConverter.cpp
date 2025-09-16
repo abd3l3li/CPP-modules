@@ -38,8 +38,8 @@ void ScalarConverter::convert(const std::string& literal)
         }
 }
 
-//checkers
 
+//checkers
 
 bool checkPseudoLiteral(const std::string& str)
 {
@@ -51,8 +51,6 @@ bool checkPseudoLiteral(const std::string& str)
 bool isInt(const std::string& str)
 {
     char* end;
-    //long int strtol(const char* str, char** endptr, int base);
-    //base is for the inserted str frormat
     long val = std::strtol(str.c_str(), &end, 10);
     return *end == '\0' && val >= INT_MIN && val <= INT_MAX;
 }
@@ -61,14 +59,15 @@ bool isFloat(const std::string& str)
 {
     char* end;
     float val = std::strtof(str.c_str(), &end);
-    return (*end == 'f' && *(end + 1) == '\0') || (*end == '\0' && val >= -FLT_MAX && val <= FLT_MAX);
+    return (*end == 'f' && *(end + 1) == '\0' && val >= -FLT_MAX && val <= FLT_MAX)
+            || (*end == '\0' && val >= -FLT_MAX && val <= FLT_MAX);
 }
 
 bool isDouble(const std::string& str)
 {
     char* end;
     double val = std::strtod(str.c_str(), &end);
-    return *end == '\0' && val >= -DBL_MAX && val <= DBL_MAX;
+    return (*end == '\0' && val >= -DBL_MAX && val <= DBL_MAX);
 }
 
 //printers
@@ -103,8 +102,6 @@ void printChar(char c)
 {
     std::cout << "char: '" << c << "'" << std::endl;
     std::cout << "int: " << static_cast<int>(c) << std::endl;
-    //fixed used for avoiding scientific notation in large or small nums
-    //setprecision used for N of numbers after the fixed point
     std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
     std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
@@ -128,7 +125,6 @@ void printFloat(float f)
     else
         std::cout << "char: Non displayable" << std::endl;
 
-    //For float: not every large int can be represented exactly, so there’s a precision risk
     if (f >= static_cast<float>(INT_MIN) && f <= static_cast<float>(INT_MAX))
         std::cout << "int: " << static_cast<int>(f) << std::endl;
     else

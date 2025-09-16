@@ -1,11 +1,10 @@
-NAME = Bureaucrat03
+NAME = whatever
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 BOLD      = \e[1m
@@ -22,10 +21,10 @@ $(NAME): $(OBJ)
 
 clean:
 	@echo "$(BOLD)$(CGREEN)cleaning ...\033[0m"
-	@$(RM) $(OBJ) 
+	@$(RM) $(OBJ)
 
 fclean: clean 
-	@$(RM) $(NAME) *_shrubbery
+	@$(RM) $(NAME)
 
 re: fclean all 
 

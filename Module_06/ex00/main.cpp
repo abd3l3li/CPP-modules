@@ -4,7 +4,8 @@ int main(int argc, char** argv)
 {
     if (argc != 2)
     {
-        std::cerr << "Usage: ./ScalarConverter <literal_value>" << std::endl;
+        std::cerr << "Usage: ./ScalarConverter "
+                << "<literal_value>" << std::endl;
         return 1;
     }
 

@@ -1,10 +1,10 @@
-NAME = Bureaucrat
+NAME = Iter
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = main.cpp Bureaucrat.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 BOLD      = \e[1m

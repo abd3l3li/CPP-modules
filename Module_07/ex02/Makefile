@@ -1,10 +1,10 @@
-NAME = Bureaucrat01
+NAME = Array
 
 CXX = c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
 RM = rm -rf
 
-SRC = main.cpp Bureaucrat.cpp Form.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o)
 
 BOLD      = \e[1m
