@@ -3,8 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <exception>
-#include <iterator>
+// #include <exception>
+// #include <iterator>
 
 class Span
 {
@@ -46,7 +46,8 @@ class Span
 
 // Template implementation must stay in header
 template <typename InputIt>
-void Span::addNumber(InputIt begin, InputIt end) {
+void Span::addNumber(InputIt begin, InputIt end)
+{
     if (_nums.size() + std::distance(begin, end) > _N)
         throw FullException();
     _nums.insert(_nums.end(), begin, end);

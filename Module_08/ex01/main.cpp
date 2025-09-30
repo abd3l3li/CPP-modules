@@ -4,7 +4,8 @@
 #include <ctime>
 #include "Span.hpp"
 
-int main() {
+int main()
+{
 
     try
     {
@@ -25,6 +26,9 @@ int main() {
         big.addNumber(v.begin(), v.end());
         std::cout << "Big shortest span: " << big.shortestSpan() << std::endl;
         std::cout << "Big longest span: " << big.longestSpan() << std::endl;
+
+        // Exception cases
+        sp.addNumber(42); // Should throw FullException
 
     }
     
