@@ -1,12 +1,17 @@
 #include "easyfind.hpp"
 
-int main() {
+int main()
+{
+
     std::vector<int> vec;
-    for (int i = 1; i <= 5; ++i) {
+    for (int i = 1; i <= 5; ++i)
+    {
         vec.push_back(i);
     }
+
     std::deque<int> deq;
-    for (int i = 10; i <= 50; i += 10) {
+    for (int i = 10; i <= 50; i += 10)
+    {
         deq.push_back(i);
     }
 
@@ -17,7 +22,7 @@ int main() {
         std::cout << "Trying to find 6 in vector..." << std::endl;
         easyfind(vec, 6);
     }
-    
+
     catch (std::runtime_error &e)
     {
         std::cerr << e.what() << std::endl;

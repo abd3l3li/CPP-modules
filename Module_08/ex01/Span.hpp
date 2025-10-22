@@ -14,23 +14,23 @@ class Span
 
 
     public:
-        // Constructors / Destructor
+        Span();
         Span(unsigned int N);
         Span(const Span& other);
         Span& operator=(const Span& other);
         ~Span();
 
-        // Add numbers
+
         void addNumber(int value);
 
         template <typename InputIt>
         void addNumber(InputIt begin, InputIt end);
 
-        // Span calculations
+
         int shortestSpan() const;
         int longestSpan() const;
 
-        // Exceptions
+
         class FullException : public std::exception
         {
             public:
@@ -44,7 +44,6 @@ class Span
         
 };
 
-// Template implementation must stay in header
 template <typename InputIt>
 void Span::addNumber(InputIt begin, InputIt end)
 {

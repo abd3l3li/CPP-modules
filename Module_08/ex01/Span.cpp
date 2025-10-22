@@ -1,15 +1,16 @@
 #include "Span.hpp"
 
-// Exceptions
-const char* Span::FullException::what() const throw() {
+
+const char* Span::FullException::what() const throw()
+{
     return "Cannot add number: Span is full";
 }
-const char* Span::NoSpanException::what() const throw() {
+const char* Span::NoSpanException::what() const throw()
+{
     return "Cannot calculate span: not enough numbers";
 }
 
-// Constructors
-    // for avoid reallocation
+Span::Span() : _N(0) {}
 Span::Span(unsigned int N) : _N(N) {_nums.reserve(N); }
 Span::Span(const Span& other) : _N(other._N), _nums(other._nums) {}
 Span& Span::operator=(const Span& other)
@@ -23,7 +24,6 @@ Span& Span::operator=(const Span& other)
 }
 Span::~Span() {}
 
-// Add one number
 void Span::addNumber(int value)
 {
     if (_nums.size() >= _N)
@@ -31,7 +31,6 @@ void Span::addNumber(int value)
     _nums.push_back(value);
 }
 
-// Shortest span
 int Span::shortestSpan() const
 {
     if (_nums.size() < 2)
@@ -50,7 +49,6 @@ int Span::shortestSpan() const
     return minSpan;
 }
 
-// Longest span
 int Span::longestSpan() const 
 {
     if (_nums.size() < 2)
