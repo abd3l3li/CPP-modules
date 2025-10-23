@@ -1,10 +1,7 @@
 #include "RPN.hpp"
 
-#include <cctype>
-#include <stack>
-#include <stdexcept>
 
-int RPN::evaluate(const std::string &expression)
+int RPN::ft_rpn(const std::string &expression)
 {
     std::stack<int> values;
 
@@ -31,20 +28,20 @@ int RPN::evaluate(const std::string &expression)
             int result = 0;
             switch (token)
             {
-            case '+':
-                result = lhs + rhs;
-                break;
-            case '-':
-                result = lhs - rhs;
-                break;
-            case '*':
-                result = lhs * rhs;
-                break;
-            case '/':
-                if (rhs == 0)
-                    throw std::runtime_error("Division by zero");
-                result = lhs / rhs;
-                break;
+                case '+':
+                    result = lhs + rhs;
+                    break;
+                case '-':
+                    result = lhs - rhs;
+                    break;
+                case '*':
+                    result = lhs * rhs;
+                    break;
+                case '/':
+                    if (rhs == 0)
+                        throw std::runtime_error("Division by zero");
+                    result = lhs / rhs;
+                    break;
             }
 
             values.push(result);

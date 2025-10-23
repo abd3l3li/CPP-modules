@@ -1,9 +1,10 @@
 #pragma once
 
-#include <string>
+#include <iostream>
+#include <stack>
 
 class RPN
 {
     public:
-        int evaluate(const std::string &expression);
+        int ft_rpn(const std::string &expression);
 };
