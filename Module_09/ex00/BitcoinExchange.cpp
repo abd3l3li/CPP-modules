@@ -22,7 +22,7 @@ std::string BitcoinExchange::trim(const std::string &str) const
     if (first == std::string::npos)
         return "";
     size_t last = str.find_last_not_of(" \t\n\r");
-    return str.substr(first, last - first + 1);
+    return str.substr(first, last - first + 1); //first points to the first char, so it includes it
 }
 
 // Load database from CSV
@@ -112,6 +112,9 @@ void BitcoinExchange::processInput(const std::string &filename) const
 // Validate date format (already correct!)
 bool BitcoinExchange::isValidDate(const std::string &date) const
 {
+    if (date.empty())
+        return false;
+
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         return false;
     
@@ -149,9 +152,6 @@ bool BitcoinExchange::isValidValue(const std::string &valueStr, float &value) co
     char *endptr;
     value = std::strtof(valueStr.c_str(), &endptr);
     
-    // Skip trailing whitespace
-    while (*endptr && std::isspace(static_cast<unsigned char>(*endptr)))
-        ++endptr;
     
     if (*endptr != '\0')
     {
