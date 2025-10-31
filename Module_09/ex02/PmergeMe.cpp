@@ -1,36 +1,24 @@
 #include "PmergeMe.hpp"
 
-int PmergeMe::ParseInput(std::string &item)
+// 🧩 Parse input arguments and validate them
+std::vector<int> PmergeMe::parseInput(int argc, char **argv)
 {
-    for (int i = 0; i < item.size(); ++i)
-        if (isdigit(item[i]))
-            return (-1);
-    
-    std::stringstream ss(item);
-    long num;
-    ss >> num;
-    if (num > 0 && num < INT_MAX)
-        _dataUnsorted.push_back(static_cast<int>(num));
-    else
-        return (-1);
-}
+    std::vector<int> numbers;
 
-PmergeMe::PmergeMe(char **data, int size)
-{
-    for (int i = 0; i < size; ++i)
-    {
-        std::string items(data[i]);
-        
-        if(-1 == ParseInput(items))
-            throw std::runtime_error("Wrong data type!");    
+    if (argc < 2)
+        throw std::runtime_error("Error: no arguments provided");
+
+    for (int i = 1; i < argc; ++i) {
+        std::string arg = argv[i];
+        std::istringstream iss(arg);
+        long num;
+
+        // Ensure argument is a valid positive integer
+        if (!(iss >> num) || !iss.eof() || (num <= 0 || num > INT_MAX))
+            throw std::runtime_error("Error: invalid number '" + arg + "'");
+
+        numbers.push_back(static_cast<int>(num));
     }
 
-    if (_dataUnsorted.empty())
-        return;
-        
-    std::vector<int> vec;
-    std::deque<int> deq;
-
-    mergeInsert(vec);
-    mergeInsert(deq);
+    return numbers;
 }
