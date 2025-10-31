@@ -23,11 +23,15 @@ class PmergeMe
     private:
     std::vector<int> _dataUnsorted;
     std::vector<int> _dataSorted;
+    int ParseInput(std::string &item);
     
         #include "PmergeMe.tpp"
         template <typename container>
         void mergeInsert(container& data) const;
+        template <typename container>
+        void binaryInsert(container& win, int lose);
+        template <typename container>
+        void printContainer(container& data) const;
 
-        int ParseInput(std::string &item);
 
 };
