@@ -69,7 +69,7 @@ void PmergeMe::mergeInsertSort(Container &data)
     if (data.size() % 2 != 0)
         winners.push_back(data.back());
 
-    std::sort(winners.begin(), winners.end());
+    mergeInsertSort(winners);
 
     for (size_t i = 0; i < losers.size(); ++i)
         binaryInsert(winners, losers[i]);
